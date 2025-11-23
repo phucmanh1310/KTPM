@@ -43,7 +43,16 @@ function Nav() {
       console.log(error)
     }
   }
-
+  // 🎯 HÀM MỚI: Cố ý gọi API để gây lỗi 500 hoặc 404
+  const handleTest500Error = async () => {
+    console.log('🔥 Triggering intentional error call...')
+    try {
+      // 👇 SỬA LẠI DÒNG NÀY
+      await axios.get(`/api/item/test-error-500`)
+    } catch (error) {
+      console.error('Frontend caught error:', error.message)
+    }
+  }
   // Hàm xử lý khi click vào My Orders
   const handleMyOrdersClick = () => {
     localStorage.setItem('hasViewedOrders', 'true')
@@ -87,7 +96,15 @@ function Nav() {
       >
         FASTFOOD
       </h1>
-
+      {/* 🛑 NÚT MỚI: TEST MONITORING (Chỉ hiển thị trên Desktop) */}
+      <button
+        className="hidden md:flex items-center p-2 cursor-pointer rounded-lg bg-red-500 text-white text-xs font-bold shadow-md hover:bg-red-600 transition-colors"
+        onClick={handleTest500Error}
+        title="Trigger an intentional API call to verify error monitoring in Prometheus/Grafana"
+      >
+        TEST 500 ERROR
+      </button>
+      {/* 🛑 HẾT NÚT MỚI */}
       {/* Desktop search bar - chỉ hiện cho user */}
       {userData.role === 'user' && (
         <div className="md:w-[50%] lg:w-[40%] h-[70px] bg-white shadow-xl rounded-lg items-center gap-[20px] hidden md:flex">

@@ -10,8 +10,8 @@ import { Navigate } from 'react-router-dom'
 import useGetCity from './hooks/useGetCity.jsx'
 import useGetMyShop from './hooks/useGetMyShop.jsx'
 import CreateEditShop from './pages/CreateEditShop.jsx'
-import AddItem from './pages/AddItem.jsx' // ← Thêm import
-import EditItem from './pages/EditItem.jsx' // ← Thêm import
+import AddItem from './pages/AddItem.jsx'
+import EditItem from './pages/EditItem.jsx'
 import useGetShopByCity from './hooks/useGetShopByCity.jsx'
 import useGetItemsByCity from './hooks/useGetItemsByCity.jsx'
 import CartPage from './pages/CartPage.jsx'
